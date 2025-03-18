@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Guardian UI</title>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // 设置画布大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 背景色
+        ctx.fillStyle = "#f0f0f0";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // 画卡片
+        function drawCard(x, y, title, desc) {
+            ctx.fillStyle = "#fff";
+            ctx.fillRect(x, y, 280, 180);
+            
+            ctx.fillStyle = "#333";
+            ctx.font = "18px Arial";
+            ctx.fillText(title, x + 20, y + 40);
+            
+            ctx.font = "14px Arial";
+            ctx.fillText(desc, x + 20, y + 80);
+            
+            // 画按钮
+            ctx.fillStyle = "#4CAF50";
+            ctx.fillRect(x + 80, y + 120, 120, 40);
+            
+            ctx.fillStyle = "#fff";
+            ctx.font = "16px Arial";
+            ctx.fillText("Explore", x + 120, y + 145);
+        }
+
+        // 渲染
+        function render() {
+            drawCard(100, 100, "Helping Families", "Community & Parenting Tips");
+            drawCard(450, 100, "Healthy Gaming", "Time Limits & Controls");
+            drawCard(800, 100, "More Protection", "Advanced Safety Features");
+        }
+
+        render();
+    </script>
+</body>
+</html>
